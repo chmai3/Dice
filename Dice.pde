@@ -1,23 +1,16 @@
  Die bob;
- Die sally;
- Die will;
  void setup()
   {
-      size(500, 500);
+      size(600, 600);
       noLoop();
       bob = new Die(50,50);
-      sally = new Die(250,50);
-      will = new Die(450,50);
+  
   }
   void draw()
   {
-      background(0);
+      background((int) (Math.random() * 256), (int) (Math.random() * 256), (int) (Math.random() * 256));
       bob.roll();
-      sally.roll();
-      will.roll();
       bob.show();
-      sally.show();
-      will.show();
   }
   void mousePressed()
   {
@@ -27,20 +20,18 @@
   {
       int myX, myY;   
       Die(int x, int y) //constructor
-      {       
-          myX = x;
-          myY = y;
-          
+     {
           
       }
       void roll()
       {
- 
+         myX = myX + 100;
+         myY = myY + 100;
         
       }
       void show()
       {
-         fill(255);
+         fill((int) (Math.random() * 256), (int) (Math.random() * 256), (int) (Math.random() * 256));
          rect(myX, myY, 50, 50);
       }
   }
