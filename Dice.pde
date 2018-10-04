@@ -1,12 +1,13 @@
-  Die bob;
+ Die bob;
  void setup()
   {
       size(600, 600);
       noLoop();
+      textAlign(500,550);
   }
   void draw()
   {
-      int dNum = 0;
+      int dice = 0;
       background((int) (Math.random() * 256), (int) (Math.random() * 256), (int) (Math.random() * 256));
       for(int i = 50; i <= 500; i = i+100){
         for(int j = 50; j <= 500; j = j + 100)
@@ -17,7 +18,7 @@
           
         }
       }
-      text("Total Number of Dots: " + dNum, 300, 550);
+      text("Total Number of Dots: " + dice, 300, 550);
       
       
   }
@@ -27,11 +28,13 @@
   }
   class Die //models one single dice cube
   {
+      int dice;
       int myX, myY;
       Die(int x, int y) //constructor
      {
-          myX = x;
-          myY = y;
+       roll();   
+       myX = x;
+       myY = y;
 
       }
       void roll()
@@ -41,7 +44,7 @@
         
         if ( total == 1  )
         {
-           dNum = 1;
+           dice = 1;
            fill(0);
            ellipse( (myX + 40), (myY + 40), 15, 15); 
 
@@ -49,7 +52,7 @@
         }
         if( total == 2)
         {
-           dNum = 2;
+           dice = 2;
            fill(0);
            ellipse( (myX + 20), (myY + 20), 15, 15); 
            ellipse( (myX + 60), (myY + 60), 15, 15);
@@ -57,7 +60,7 @@
         }
         if( total == 3)
         {
-           dNum = 4;
+           dice = 3;
            fill(0);
            ellipse( (myX + 20), (myY + 20), 15, 15); 
            ellipse( (myX + 40), (myY + 40), 15, 15);
@@ -66,7 +69,7 @@
         }
         if( total== 4)
         {
-          dNum = 4;
+          dice = 4;
           fill(0);
           ellipse( (myX + 20), (myY + 20), 15, 15); 
           ellipse( (myX + 20), (myY + 60), 15, 15);
@@ -76,7 +79,7 @@
         }
         if( total == 5)
         {
-          dNum = 5;
+          dice = 5;
           fill(0);
           ellipse( (myX + 40), (myY + 40), 15, 15); 
           ellipse( (myX + 20), (myY + 20), 15, 15); 
@@ -87,7 +90,7 @@
         }
         if ( total == 6)
         {
-          dNum = 6;
+          dice = 6;
           fill(0);
           ellipse( (myX + 20), (myY + 40), 15, 15); 
           ellipse( (myX + 20), (myY + 20), 15, 15); 
@@ -104,6 +107,7 @@
       {
          fill((int) (Math.random() * 256), (int) (Math.random() * 256), (int) (Math.random() * 256));
          rect(myX, myY, 80, 80);
+
          
          }
       }
